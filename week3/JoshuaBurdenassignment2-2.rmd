@@ -22,7 +22,7 @@ library(tidyverse)
 library(scales)
 library(reshape2)
 ```
-
+```{r, include = FALSE}
 
 population <- read_excel("world-population.xlsm")
 population
@@ -41,4 +41,4 @@ ggplot()+
   geom_step(mapping=aes(x=x, y=y), direction="vh", linetype=3)+
   labs(title = "World Population by Year", x = "Year", y = "Population")+
   scale_y_continuous(label=comma)
-
+```
