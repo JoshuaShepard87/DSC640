@@ -6,6 +6,11 @@ output: pdf_document
 ---
 # Plots Using **R**
 
+```{r, include = FALSE)
+library(tinytex)
+options( tinytex.verbose = TRUE)
+```
+
 ```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 # Set Working Directory
@@ -88,5 +93,4 @@ ggplot(winsDF, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=Country)) +
   theme_void() +
   ggtitle("Hotdog Eating Competition: Wins by Country")
 ```
-
 

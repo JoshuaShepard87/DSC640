@@ -1,0 +1,44 @@
+---
+title: 'Exercise 2.2: Charts'
+author: 'Joshua Burden'
+date: "01/08/2023"
+output: pdf_document
+---
+# Plots Using **R**
+
+```{r, include = FALSE)
+library(tinytex)
+options( tinytex.verbose = TRUE)
+```
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+# Set Working Directory
+setwd("C:/Users/Joshu/Desktop/Masters/DSC640/Week3")
+# Load libraries
+library(readxl)
+library(ggplot2)
+library(tidyverse)
+library(scales)
+library(reshape2)
+```
+
+
+population <- read_excel("world-population.xlsm")
+population
+
+ggplot(population, aes(x = Year, y = Population))+
+  geom_line(color = 'red')+
+  labs(title = "World Population by Year", x = "Year", y = "Population")+
+  scale_y_continuous(label=comma)
+
+
+x<-population$Year
+y<-population$Population
+
+ggplot()+
+  geom_step(data = population, mapping= aes(x=x, y=y))+
+  geom_step(mapping=aes(x=x, y=y), direction="vh", linetype=3)+
+  labs(title = "World Population by Year", x = "Year", y = "Population")+
+  scale_y_continuous(label=comma)
+
